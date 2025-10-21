@@ -1753,28 +1753,37 @@
         document.getElementById('vip-form').addEventListener('submit', async function(e) {
             e.preventDefault();
 
+            const submitButton = e.target.querySelector('button[type="submit"]');
+            const messageDiv = document.getElementById('form-message');
+            
+            // Pega o token do reCAPTCHA
             const token = grecaptcha.getResponse();
-            if (!token) {
-                alert("Por favor, marque a caixa 'Não sou um robô'.");
+            if (token.length === 0) {
+                messageDiv.textContent = "Por favor, marque a caixa 'Não sou um robô'.";
+                messageDiv.style.color = 'var(--destructive)';
                 return;
             }
 
-            const form = e.target;
-            const formData = new FormData(form);
-            const data = { token }; // Adiciona o token do reCAPTCHA
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
-
-            // Also gather hidden fields added by the script
-            const hiddenInputs = form.querySelectorAll('input[type="hidden"]');
-            hiddenInputs.forEach(input => {
-                data[input.name] = input.value;
-            });
-
-            const submitButton = form.querySelector('button[type="submit"]');
-            const messageDiv = document.getElementById('form-message');
+            // Monta o objeto de dados manualmente para garantir a estrutura correta
+            const data = {
+                token: token,
+                nome: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                whatsapp: document.getElementById('whatsapp').value,
+                cidade_uf: document.getElementById('city').value,
+                perfil: document.querySelector('input[name="perfil"]:checked').value,
+                mensagem: document.getElementById('message').value,
+                consentimento: document.getElementById('consent').checked
+            };
             
+            // Adiciona campos UTM se existirem
+            const hiddenInputs = e.target.querySelectorAll('input[type="hidden"]');
+            hiddenInputs.forEach(input => {
+                if (input.name !== '_honeypot') { // Ignora o honeypot
+                    data[input.name] = input.value;
+                }
+            });
+
             submitButton.disabled = true;
             messageDiv.textContent = 'Enviando...';
             messageDiv.style.color = 'var(--muted-foreground)';
@@ -1788,8 +1797,9 @@
                     body: JSON.stringify(data),
                 });
 
+                const result = await response.json();
+
                 if (response.ok) {
-                    // Push to dataLayer for analytics
                     window.dataLayer = window.dataLayer || [];
                     window.dataLayer.push({
                         'event': 'form_submission',
@@ -1799,9 +1809,10 @@
 
                     messageDiv.textContent = 'Obrigado! Seus dados foram enviados com sucesso.';
                     messageDiv.style.color = 'green';
-                    form.reset();
+                    e.target.reset();
+                    grecaptcha.reset(); // Reseta o reCAPTCHA
                 } else {
-                    throw new Error('Falha no envio.');
+                    throw new Error(result.message || 'Falha no envio.');
                 }
             } catch (error) {
                  window.dataLayer = window.dataLayer || [];
@@ -1810,7 +1821,7 @@
                     'event_category': 'error',
                     'event_label': 'vip-form-failure'
                 });
-                messageDiv.textContent = 'Ocorreu um erro ao enviar. Por favor, tente novamente.';
+                messageDiv.textContent = error.message || 'Ocorreu um erro ao enviar. Por favor, tente novamente.';
                 messageDiv.style.color = 'var(--destructive)';
             } finally {
                 submitButton.disabled = false;
