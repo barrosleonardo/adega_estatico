@@ -1,5 +1,4 @@
-
-name: Minify CSS and JS
+name: Minify CSS & JS
 
 on:
   push:
@@ -14,35 +13,24 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      - name: Install dependencies
-        run: npm install terser postcss postcss-cli cssnano
-
-      - name: Minify CSS and JS in-place
+      - name: Install & Minify
         run: |
-          npx postcss public/style.css --replace
-          npx terser public/script.js -o public/script.js -c -m
+          npm install postcss-cli cssnano terser
+          npx postcss public/style.css --use cssnano --replace
+          npx terser public/script.js -o public/script.js -c -m --ecma 2020
 
-      - name: Configure Git
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-
-      - name: Check for changes
-        id: changes
-        run: |
-          git diff --quiet || echo "changed=true" >> $GITHUB_OUTPUT
-
-      - name: Commit and push if changed
-        if: steps.changes.outputs.changed == 'true'
-        run: |
-          git add public/style.css public/script.js
-          git commit -m "Automated: Minify CSS and JS"
-          git push
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'Automated: Minify CSS and JS'
+          file_pattern: 'public/style.css public/script.js'
