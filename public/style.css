@@ -1097,7 +1097,7 @@ h1, h2, h3, .section-title, .form-title, .step-title, .benefit-title, .video-tit
     color: var(--secondary);
 }
 
-/* Forçar fonte correta nos trechos do Hero */
+/* Forçar trigger da Action */
 .text-lg,
 .md\:text-xl,
 .text-xs,
