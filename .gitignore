@@ -10,3 +10,8 @@
 
 # Log files
 *.log
+
+# Build artifacts and dependencies
+node_modules/
+main.css
+main.js
