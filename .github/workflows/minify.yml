@@ -1,0 +1,59 @@
+
+name: Minify CSS and JS
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'public/style.css'
+      - 'public/script.js'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          # We need to fetch the history to be able to push changes.
+          fetch-depth: 0
+          # We need a token with write access to push the minified files.
+          token: ${{ secrets.ACTIONS_TOKEN }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install terser postcss postcss-cli cssnano
+
+      - name: Minify CSS
+        run: npx postcss public/style.css -o public/style.min.css
+
+      - name: Minify JS
+        run: npx terser public/script.js -o public/script.min.js -c -m
+
+      - name: Overwrite original files
+        run: |
+          mv public/style.min.css public/style.css
+          mv public/script.min.js public/script.js
+
+      - name: Configure Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push if changed
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git add public/style.css public/script.js
+          git commit -m "Automated: Minify CSS and JS"
+          git push
