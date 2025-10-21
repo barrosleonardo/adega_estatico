@@ -8,6 +8,11 @@ export async function onRequestPost(context) {
     const body = await request.json();
     const { token, ...formData } = body;
 
+    // --- DEBUGGING LOG ---
+    console.log("Received token length:", token ? token.length : 'undefined');
+    console.log("Token prefix:", token ? token.substring(0, 20) : 'undefined');
+    // --- END DEBUGGING LOG ---
+
     // 1. Validação do reCAPTCHA
     const recaptchaSecret = env.RECAPTCHA_SECRET_KEY;
     const ip = request.headers.get('CF-Connecting-IP'); // Pega o IP real do visitante via Cloudflare
