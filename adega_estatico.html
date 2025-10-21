@@ -1703,14 +1703,16 @@
         function scrollToSection(sectionId) {
             const element = document.getElementById(sectionId);
             if (element) {
+                // Envia o evento para o Google Analytics
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push({
-                    'event': 'cta_click',
-                    'event_category': 'navigation',
-                    'event_label': sectionId
+                    'event': 'menu_click',
+                    'link_id': sectionId
                 });
+
                 element.scrollIntoView({ behavior: 'smooth' });
-                // Close mobile menu if open
+                
+                // Fecha o menu mobile se estiver aberto
                 const mobileMenu = document.getElementById('mobile-menu');
                 if (mobileMenu) {
                     mobileMenu.classList.remove('active');
@@ -1801,9 +1803,8 @@
                 if (response.ok) {
                     window.dataLayer = window.dataLayer || [];
                     window.dataLayer.push({
-                        'event': 'form_submission',
-                        'event_category': 'conversion',
-                        'event_label': 'vip-form-success'
+                        'event': 'generate_lead',
+                        'form_location': 'vip_signup'
                     });
 
                     messageDiv.textContent = 'Obrigado! Seus dados foram enviados com sucesso.';
