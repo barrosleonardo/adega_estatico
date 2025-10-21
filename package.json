@@ -4,8 +4,8 @@
   "description": "Landing page for Adega 101",
   "scripts": {
     "build": "npm run build:css && npm run build:js",
-    "build:css": "npx postcss style.css -o main.css",
-    "build:js": "npx terser script.js -o main.js -c -m"
+    "build:css": "npx postcss style.css -o public/main.css",
+    "build:js": "npx terser script.js -o public/main.js -c -m"
   },
   "author": "",
   "license": "ISC",

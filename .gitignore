@@ -13,5 +13,5 @@
 
 # Build artifacts and dependencies
 node_modules/
-main.css
-main.js
+public/main.css
+public/main.js
