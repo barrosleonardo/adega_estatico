@@ -1,0 +1,1901 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    
+    <meta name="description" content="Aumente sua receita e encante seus hóspedes com a Adega 101. Sistema inteligente de autoatendimento de vinhos para Airbnbs e hospedagens por temporada.">
+    <meta name="keywords" content="adega inteligente, vinhos, airbnb, aluguel por temporada, autoatendimento, automação, receita extra, anfitrião, hospedagem, adega 101">
+    <meta name="author" content="Adega 101">
+    <link rel="canonical" href="https://adega101.com.br">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adega101.com.br">
+    <meta property="og:title" content="Adega 101 - Sistema Inteligente de Vinhos para Hospedagens">
+    <meta property="og:description" content="Aumente sua receita e encante seus hóspedes com a Adega 101. Sistema inteligente de autoatendimento de vinhos para Airbnbs e hospedagens por temporada.">
+    <meta property="og:image" content="https://adega101.shop/share.jpg">
+    <meta property="og:image" content="https://www.adega101.shop/share.jpg">
+    <meta property="og:image" content="https://www.adega101.com.br/share.jpg">
+    <meta property="og:image" content="https://adega101.com.br/share.jpg">
+    <meta property="og:image" content="https://test.adega101.pages.dev/share.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://adega101.com.br">
+    <meta property="twitter:title" content="Adega 101 - Sistema Inteligente de Vinhos para Hospedagens">
+    <meta property="twitter:description" content="Aumente sua receita e encante seus hóspedes com a Adega 101. Sistema inteligente de autoatendimento de vinhos para Airbnbs e hospedagens por temporada.">
+    <meta property="twitter:image" content="https://adega101.com.br/img_hero.png">
+
+    <script>window.dataLayer = window.dataLayer || [];</script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','G-FPGJVQLV09');</script>
+    <!-- End Google Tag Manager -->
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset e base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --background: hsl(35, 20%, 98%);
+            --foreground: hsl(343, 45%, 12%);
+            --card: hsl(0, 0%, 100%);
+            --card-foreground: hsl(343, 45%, 12%);
+            --primary: hsl(343, 65%, 28%);
+            --primary-foreground: hsl(35, 20%, 98%);
+            --primary-hover: hsl(343, 75%, 22%);
+            --secondary: hsl(41, 72%, 48%);
+            --secondary-foreground: hsl(0, 0%, 100%);
+            --secondary-hover: hsl(41, 82%, 42%);
+            --muted: hsl(35, 15%, 94%);
+            --muted-foreground: hsl(343, 25%, 45%);
+            --accent: hsl(343, 35%, 88%);
+            --accent-foreground: hsl(343, 65%, 28%);
+            --border: hsl(343, 15%, 88%);
+            --input: hsl(343, 15%, 88%);
+            --destructive: hsl(0, 84.2%, 60.2%);
+            --destructive-foreground: hsl(35, 20%, 98%);
+            --ring: hsl(343, 65%, 28%);
+            --radius: 0.5rem;
+            
+            /* MELHORIA FINAL: Definição das novas famílias de fontes */
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            --font-display: 'Poppins', sans-serif; /* Nova fonte para títulos de destaque */
+        }
+
+        body {
+            /* Aplicando a nova fonte base para o corpo do texto */
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            background-color: var(--background);
+            color: var(--foreground);
+            -webkit-font-smoothing: antialiased; 
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Aplicando a nova fonte Display (Poppins) em todos os títulos principais */
+        h1, h2, h3, .section-title, .form-title, .step-title, .benefit-title, .video-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+        }
+
+        /* ---------------------------------- */
+        /* EFEITOS DE TRANSIÇÃO E ANIMAÇÃO */
+        /* ---------------------------------- */
+        .btn, 
+        .step-card, 
+        .benefit-card,
+        .faq-item {
+            /* Transição mais suave e uniforme para todos os elementos interativos */
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
+        }
+
+        .btn:hover,
+        .step-card:hover, 
+        .benefit-card:hover {
+            transform: translateY(-5px) scale(1.02); /* Movimento mais sutil */
+            box-shadow: 0 15px 35px -15px rgba(0, 0, 0, 0.3); /* Sombra mais destacada */
+        }
+        
+        /* SCROLL REVEAL (Efeito de Fade-in e Slide-up ao rolar) */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform; /* Otimização para performance */
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Atrasos em sequência para os cards de Como Funciona */
+        .steps-grid > .step-card:nth-child(1) { transition-delay: 0s; }
+        .steps-grid > .step-card:nth-child(2) { transition-delay: 0.15s; }
+        .steps-grid > .step-card:nth-child(3) { transition-delay: 0.3s; }
+        .steps-grid > .step-card:nth-child(4) { transition-delay: 0.45s; }
+
+        /* Atrasos em sequência para os cards de Benefícios */
+        .benefits-grid .benefit-card:nth-child(1) { transition-delay: 0s; }
+        .benefits-grid .benefit-card:nth-child(2) { transition-delay: 0.1s; }
+        .benefits-grid .benefit-card:nth-child(3) { transition-delay: 0.2s; }
+        .benefits-grid .benefit-card:nth-child(4) { transition-delay: 0.3s; }
+        .benefits-grid .benefit-card:nth-child(5) { transition-delay: 0.4s; }
+        .benefits-grid .benefit-card:nth-child(6) { transition-delay: 0.5s; }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: hsl(343, 65%, 28%, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, backdrop-filter 0.3s;
+        }
+
+        .navbar-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4rem;
+        }
+
+        .navbar-logo {
+            height: 2.5rem;
+            width: auto;
+            cursor: pointer;
+        }
+
+        .navbar-links {
+            display: none;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .navbar-links {
+                display: flex;
+            }
+        }
+
+        .navbar-link {
+            color: var(--primary-foreground);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-sans);
+        }
+
+        .navbar-link:hover {
+            color: var(--secondary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+            border-radius: var(--radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+            font-family: var(--font-sans);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--primary-foreground);
+            padding: 0.5rem 1rem;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+
+        .btn-wine {
+            background: linear-gradient(to right, var(--secondary), var(--secondary-hover));
+            color: var(--secondary-foreground);
+            padding: 0.5rem 1rem;
+            font-weight: 700;
+        }
+
+        .btn-wine:hover {
+            /* Transformação já definida no bloco de animação */
+        }
+
+        .btn-hero {
+            background: linear-gradient(to right, var(--primary), var(--primary-hover));
+            color: var(--primary-foreground);
+            padding: 0.75rem 2rem;
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+
+        .btn-hero:hover {
+            /* Transformação já definida no bloco de animação */
+            box-shadow: 0 0 40px hsl(343, 65%, 28%, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 3rem;
+            background: radial-gradient(ellipse at center, hsl(25, 60%, 20%) 0%, hsl(0, 0%, 8%) 60%, hsl(0, 0%, 3%) 100%);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+            min-height: calc(100vh - 4rem); 
+            justify-content: flex-end; 
+            padding: 0 0 3rem 0; 
+        }
+
+        @media (min-width: 1024px) {
+            .hero-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+                min-height: 100vh;
+                align-items: center; 
+                justify-content: start;
+                padding: 0;
+            }
+        }
+        
+        /* ANIMAÇÃO HERO: O texto deve aparecer logo que a página carrega */
+        .hero-text {
+            /* Fade-in para o texto do Hero */
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInSlideUp 1s ease-out forwards;
+            animation-delay: 0.3s;
+        }
+        @keyframes fadeInSlideUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-image {
+            order: 1;
+            width: 100%;
+            position: absolute; 
+            right: 0;
+            top: 0;
+            bottom: 0;
+            opacity: 0.6; 
+            z-index: 5;
+            transition: opacity 0.5s;
+        }
+        
+        @media (min-width: 1024px) {
+            .hero-image {
+                order: 2;
+                position: relative;
+                width: 100%;
+                opacity: 1; 
+                z-index: 10;
+                align-self: center; 
+                height: 100%;
+            }
+            .hero-image-container {
+                /* Adiciona um efeito de delay para a imagem aparecer após o texto no desktop */
+                opacity: 0;
+                transform: translateX(10px);
+                animation: fadeInSlideRight 1s ease-out forwards;
+                animation-delay: 0.5s;
+            }
+            @keyframes fadeInSlideRight {
+                from { opacity: 0; transform: translateX(10px); }
+                to { opacity: 1; transform: translateX(0); }
+            }
+        }
+
+        .hero-image-container {
+            border-radius: 0; 
+            box-shadow: none;
+            height: 100%;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-image-container {
+                position: relative;
+                overflow: hidden;
+                border-radius: 1rem;
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+                height: 600px; 
+            }
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%; 
+            object-fit: cover;
+            object-position: center; 
+        }
+        
+        .hero-text {
+            text-align: center;
+            order: 2;
+            padding-bottom: 2rem;
+            position: relative; 
+            z-index: 20;
+            width: 100%;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-text {
+                text-align: left;
+                order: 1;
+                padding-bottom: 0;
+            }
+        }
+
+        .hero-title {
+            font-family: var(--font-display); 
+            font-weight: 700; 
+            font-size: 1.875rem;
+            color: var(--primary-foreground);
+            line-height: 1.2;
+            margin-bottom: 1rem; 
+            letter-spacing: -0.02em;
+        }
+
+        @media (min-width: 640px) {
+            .hero-title {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+                margin-bottom: 2rem; 
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 3.75rem;
+            }
+        }
+
+        .hero-gradient-text {
+            background: linear-gradient(to right, var(--secondary), var(--secondary-hover));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .hero-description {
+            font-family: var(--font-sans); 
+            font-size: 1.125rem;
+            color: var(--primary-foreground);
+            max-width: 36rem;
+            line-height: 1.6;
+            margin: 0 auto 1.5rem auto; 
+        }
+
+        @media (min-width: 768px) {
+            .hero-description {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-description {
+                margin: 0 0 2rem 0; 
+            }
+        }
+
+        .hero-features {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+            padding-top: 1rem; 
+        }
+
+        @media (min-width: 640px) {
+            .hero-features {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero-features {
+                padding-top: 2rem; 
+            }
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-foreground);
+            justify-content: center;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-feature {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero-feature {
+                gap: 0.75rem;
+            }
+        }
+
+        .hero-feature-icon {
+            background: var(--secondary);
+            border-radius: 50%;
+            padding: 0.375rem; 
+            flex-shrink: 0;
+            /* Adicionando transição de cor no hover */
+            transition: background 0.3s ease; 
+        }
+        
+        .hero-feature:hover .hero-feature-icon {
+            background: var(--secondary-hover);
+        }
+
+
+        @media (min-width: 768px) {
+            .hero-feature-icon {
+                padding: 0.5rem; 
+            }
+        }
+
+        .hero-feature-text {
+            font-size: 0.75rem; 
+            font-weight: 500;
+            font-family: var(--font-sans); 
+        }
+
+        @media (min-width: 768px) {
+            .hero-feature-text {
+                font-size: 0.875rem; 
+            }
+        }
+
+        /* Section styling */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            text-align: center;
+            color: var(--muted-foreground);
+            max-width: 32rem;
+            margin: 0 auto 4rem auto;
+            font-family: var(--font-sans); 
+        }
+
+        /* How it works */
+        .how-it-works {
+            position: relative;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('adega_escuro.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .how-it-works .section-title {
+            color: white;
+        }
+
+        .how-it-works .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .steps-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 768px) {
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .steps-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .step-card {
+            position: relative;
+            background: var(--card);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* O hover está definido no bloco de animação */
+
+        .step-number {
+            position: absolute;
+            top: -1rem;
+            left: 2rem;
+            background: linear-gradient(to right, var(--primary), var(--primary-hover));
+            color: var(--primary-foreground);
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+
+        .step-icon {
+            background: var(--accent);
+            border-radius: 50%;
+            width: 4rem;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            transition: background 0.3s;
+        }
+        
+        .step-card:hover .step-icon {
+            background: var(--border);
+        }
+
+        .step-title {
+            font-size: 1.25rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .step-description {
+            color: var(--muted-foreground);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Video section */
+        .video-section {
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .video-title {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .video-container {
+            max-width: 64rem;
+            margin: 0 auto;
+        }
+
+        .video-wrapper {
+            position: relative;
+            aspect-ratio: 16/9;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px -10px hsl(343, 65%, 28%, 0.3);
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Benefits */
+        .benefits {
+            background: var(--card);
+        }
+
+        .benefits-content {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        @media (min-width: 1024px) {
+            .benefits-content {
+                flex-direction: row;
+                gap: 3rem;
+            }
+        }
+
+        .benefits-grid {
+            display: grid;
+            gap: 1.5rem;
+            flex: 1;
+            height: fit-content;
+        }
+
+        @media (min-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .benefits-grid {
+                height: 600px;
+                align-content: start;
+            }
+        }
+
+        .benefit-card {
+            background: linear-gradient(180deg, var(--background) 0%, var(--muted) 100%);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+        
+        /* O hover está definido no bloco de animação */
+
+        .benefit-icon {
+            background: linear-gradient(to right, var(--secondary), var(--secondary-hover));
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            transition: transform 0.3s;
+        }
+        
+        .benefit-card:hover .benefit-icon {
+            transform: rotate(360deg);
+        }
+
+        .benefit-title {
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .benefit-description {
+            font-size: 0.875rem;
+            color: var(--muted-foreground);
+            line-height: 1.6;
+        }
+
+        .benefits-image {
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 1024px) {
+            .benefits-image {
+                width: 24rem;
+            }
+        }
+
+        .benefits-image img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px -10px hsl(343, 65%, 28%, 0.3);
+            transition: box-shadow 0.4s;
+        }
+        
+        .benefits-image:hover img {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+        }
+
+        /* VIP Form */
+        .vip-form-section {
+            background: linear-gradient(180deg, var(--background) 0%, var(--muted) 100%);
+        }
+
+        .form-container {
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .form-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .form-title {
+                font-size: 3rem;
+            }
+        }
+
+        .form-subtitle {
+            color: var(--muted-foreground);
+            font-size: 1.25rem;
+            line-height: 1.6;
+            max-width: 32rem;
+            margin: 0 auto;
+            font-family: var(--font-sans);
+        }
+
+        .form-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(4px);
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px -10px hsl(343, 65%, 28%, 0.3);
+            border: 1px solid rgba(var(--border), 0.2);
+            padding: 2.5rem;
+            transition: transform 0.5s ease-out;
+        }
+
+        @media (min-width: 768px) {
+            .form-card {
+                padding: 2.5rem;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--input);
+            border-radius: var(--radius);
+            background: var(--background);
+            transition: border-color 0.2s, box-shadow 0.2s;
+            font-family: var(--font-sans); 
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--ring);
+            box-shadow: 0 0 0 3px hsl(343, 65%, 28%, 0.2);
+        }
+
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .radio-group {
+            display: grid;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .radio-group {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+        }
+
+        .checkbox-label {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            cursor: pointer;
+        }
+
+        .checkbox-label a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .checkbox-label a:hover {
+            text-decoration: underline;
+        }
+
+        .form-submit {
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .form-submit {
+                width: auto;
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+        }
+
+        /* FAQ */
+        .faq {
+            background: linear-gradient(180deg, var(--background) 0%, var(--muted) 100%);
+        }
+
+        .faq-container {
+            max-width: 64rem;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--card);
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+            margin-bottom: 1rem;
+            /* Fade-in já aplicado */
+        }
+
+        .faq-trigger {
+            width: 100%;
+            padding: 1.5rem;
+            text-align: left;
+            background: none;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s;
+            font-family: var(--font-sans); 
+            font-size: 1rem;
+        }
+
+        .faq-trigger:hover {
+            background: hsl(var(--accent), 0.5);
+        }
+
+        .faq-content {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            color: var(--muted-foreground);
+            line-height: 1.6;
+            white-space: pre-line;
+            display: none;
+        }
+
+        .faq-content.active {
+            display: block;
+            /* Adicionando animação de expansão */
+            animation: expand 0.3s ease-out forwards;
+        }
+
+        @keyframes expand {
+            from { opacity: 0; max-height: 0; padding-top: 0; padding-bottom: 0; }
+            to { opacity: 1; max-height: 500px; padding-top: 0; }
+        }
+
+        /* CTA */
+        .cta {
+            padding: 2rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+        }
+
+        .cta-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cta-logo {
+            height: 4rem;
+            width: auto;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--card);
+            border-top: 1px solid var(--border);
+            padding: 3rem 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .footer-company {
+            grid-column: span 2;
+        }
+
+        .footer-description {
+            color: var(--muted-foreground);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-contact {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-contact {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--muted-foreground);
+            transition: color 0.2s;
+        }
+        
+        .footer-contact:hover {
+            color: var(--primary);
+        }
+
+        .footer-section-title {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: var(--font-sans); 
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--muted-foreground);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: var(--muted-foreground);
+        }
+
+        /* Icons - AJUSTADO para w-3 h-3 md:w-4 md:h-4 */
+        .icon {
+            width: 0.75rem; /* w-3 */
+            height: 0.75rem; /* h-3 */
+            color: var(--secondary-foreground);
+        }
+
+        @media (min-width: 768px) {
+            .icon {
+                width: 1rem; /* md:w-4 */
+                height: 1rem; /* md:h-4 */
+            }
+        }
+
+        .icon-md {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .icon-lg {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        /* Utilities */
+        .hidden {
+            display: none;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            display: none;
+            border-top: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu-content {
+            padding: 0.5rem 0.5rem 0.75rem 0.5rem;
+        }
+
+        .mobile-menu-item {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 0.75rem;
+            color: var(--foreground);
+            background: none;
+            border: none;
+            border-radius: var(--radius);
+            transition: all 0.2s;
+            margin-bottom: 0.25rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .mobile-menu-item:hover {
+            color: var(--primary);
+            background: var(--muted);
+        }
+
+        .mobile-menu-btn {
+            padding: 0.75rem;
+        }
+
+        .mobile-menu-btn .btn {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: block;
+            background: none;
+            border: none;
+            color: var(--primary-foreground);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-menu-toggle {
+                display: none;
+            }
+        }
+
+        .mobile-menu-toggle:hover {
+            color: var(--secondary);
+        }
+    
+        /* Forçar fonte correta nos trechos do Hero */
+        .text-lg,
+        .md\:text-xl,
+        .text-xs,
+        .md\:text-sm,
+        .font-medium {
+            font-family: var(--font-sans);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=G-FPGJVQLV09"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div>
+                    <img src="logo_transparent.png" 
+                        alt="Adega 101 Logo"
+                        class="navbar-logo"
+                        onclick="scrollToSection('hero')"
+                    />
+                </div>
+
+                <div class="navbar-links">
+                    <button class="navbar-link" onclick="scrollToSection('hero')">Início</button>
+                    <button class="navbar-link" onclick="scrollToSection('how-it-works')">Como Funciona</button>
+                    <button class="navbar-link" onclick="scrollToSection('benefits')">Benefícios</button>
+                    <button class="navbar-link" onclick="scrollToSection('faq')">FAQ</button>
+                    <button class="btn btn-wine" onclick="scrollToSection('vip-signup')">Começar Agora</button>
+                </div>
+
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <svg class="icon-md" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="mobile-menu">
+                <div class="mobile-menu-content">
+                    <button class="mobile-menu-item" onclick="scrollToSection('hero')">Início</button>
+                    <button class="mobile-menu-item" onclick="scrollToSection('how-it-works')">Como Funciona</button>
+                    <button class="mobile-menu-item" onclick="scrollToSection('benefits')">Benefícios</button>
+                    <button class="mobile-menu-item" onclick="scrollToSection('faq')">FAQ</button>
+                    <div class="mobile-menu-btn">
+                        <button class="btn btn-wine" onclick="scrollToSection('vip-signup')">Começar Agora</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero">
+        <div class="hero-overlay"></div>
+        
+        <div class="container hero-content">
+            <div class="hero-grid">
+                <div class="hero-image">
+                    <div class="hero-image-container">
+                        <img 
+                            src="img_hero.png" 
+                            alt="Casal desfrutando vinhos com o app Adega 101 no celular"
+                        />
+                        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);"></div>
+                    </div>
+                </div>
+                
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Aumente sua receita e 
+                        <span class="hero-gradient-text">encante</span> 
+                        seus hóspedes
+                    </h1>
+                    
+                    <p class="hero-description">
+                        A Adega 101 é o sistema inteligente de autoatendimento de vinhos para Airbnbs e hospedagens por temporada. 
+                        Sem bateria, sem energia e pronta para usar, ela transforma seu espaço em uma experiência única.
+                    </p>
+                    
+                    <div class="hero-features">
+                        <div class="hero-feature">
+                            <div class="hero-feature-icon">
+                                <svg class="icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M20 6 9 17l-5-5"></path>
+                                </svg>
+                            </div>
+                            <span class="hero-feature-text">Instalação rápida</span>
+                        </div>
+                        
+                        <div class="hero-feature">
+                            <div class="hero-feature-icon">
+                                <svg class="icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect>
+                                    <path d="M12 18h.01"></path>
+                                </svg>
+                            </div>
+                            <span class="hero-feature-text">Pagamento direto no celular</span>
+                        </div>
+                        
+                        <div class="hero-feature">
+                            <div class="hero-feature-icon">
+                                <svg class="icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"></path>
+                                    <path d="M12 22V12"></path>
+                                    <path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"></path>
+                                    <path d="m7.5 4.27 9 5.15"></path>
+                                </svg>
+                            </div>
+                            <span class="hero-feature-text">Envio para todo Brasil</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="section how-it-works">
+        <div class="container">
+            <div class="text-center fade-in" style="margin-bottom: 4rem;">
+                <h2 class="section-title">Como Funciona</h2>
+                <p class="section-subtitle">Um processo simples e automatizado que funciona 24/7</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card fade-in">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <svg class="icon-lg" style="color: var(--primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Instalação Simples</h3>
+                    <p class="step-description">Receba sua Adega 101 pronta para uso. Basta posicionar e fixar no ambiente.</p>
+                </div>
+
+                <div class="step-card fade-in">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <svg class="icon-lg" style="color: var(--primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Escolha e Pagamento</h3>
+                    <p class="step-description">O hóspede escaneia o QR Code, escolhe o vinho e paga pelo celular.</p>
+                </div>
+
+                <div class="step-card fade-in">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <svg class="icon-lg" style="color: var(--primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Liberação da Garrafa</h3>
+                    <p class="step-description">O sistema envia automaticamente o código do cadeado por SMS e e-mail.</p>
+                </div>
+
+                <div class="step-card fade-in">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <svg class="icon-lg" style="color: var(--primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Recebimento Instantâneo</h3>
+                    <p class="step-description">O valor cai direto na sua conta no mesmo momento.</p>
+                </div>
+            </div>
+
+            <div class="video-section">
+                <h3 class="video-title fade-in">Assista o vídeo:</h3>
+                <div class="video-container fade-in">
+                    <div class="video-wrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed/1C8Znkw3Mtg"
+                            title="Como funciona a Adega 101"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="section benefits">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;" class="fade-in">
+                <h2 class="section-title">Benefícios para o Anfitrião</h2>
+                <p class="section-subtitle">Vantagens que fazem a diferença no seu negócio</p>
+            </div>
+            
+            <div class="benefits-content">
+                <div class="benefits-grid">
+                    <div class="benefit-card fade-in">
+                        <div class="benefit-icon">
+                            <svg class="icon-md" style="color: var(--secondary-foreground);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Mais lucro por estadia</h3>
+                        <p class="benefit-description">Aumente sua receita com cada reserva de forma automática.</p>
+                    </div>
+
+                    <div class="benefit-card fade-in">
+                        <div class="benefit-icon">
+                            <svg class="icon-md" style="color: var(--secondary-foreground);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Experiência diferenciada</h3>
+                        <p class="benefit-description">Hóspedes encantados deixam melhores avaliações.</p>
+                    </div>
+
+                    <div class="benefit-card fade-in">
+                        <div class="benefit-icon">
+                            <svg class="icon-md" style="color: var(--secondary-foreground);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Destaque frente à concorrência</h3>
+                        <p class="benefit-description">Ofereça algo que poucos têm no mercado.</p>
+                    </div>
+
+                    <div class="benefit-card fade-in">
+                        <div class="benefit-icon">
+                            <svg class="icon-md" style="color: var(--secondary-foreground);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Operação 100% automática</h3>
+                        <p class="benefit-description">Sem precisar estar presente para operar.</p>
+                    </div>
+
+                    <div class="benefit-card fade-in">
+                        <div class="benefit-icon">
+                            <svg class="icon-md" style="color: var(--secondary-foreground);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Segurança total</h3>
+                        <p class="benefit-description">Cadeados individuais e controle de estoque completo.</p>
+                    </div>
+
+                    <div class="benefit-card fade-in">
+                        <div class="benefit-icon">
+                            <svg class="icon-md" style="color: var(--secondary-foreground);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Sem manutenção</h3>
+                        <p class="benefit-description">Não usa energia nem bateria.</p>
+                    </div>
+                </div>
+                
+                <div class="benefits-image fade-in">
+                    <img 
+                        src="adega_lateral.jfif"
+                        alt="Porta-vinhos com QR code demonstrando o sistema de reserva automática"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vip-signup" class="section vip-form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header fade-in">
+                    <h2 class="form-title">Pronto para fazer parte desta inovação?</h2>
+                    <p class="form-subtitle">
+                        A Adega 101 está em fase final de desenvolvimento. Preencha e receba vantagens exclusivas no lançamento.
+                    </p>
+                </div>
+
+                <div class="form-card fade-in">
+                    <form id="vip-form" method="POST">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Nome completo *</label>
+                            <input 
+                                type="text"
+                                id="name"
+                                name="nome"
+                                class="form-input"
+                                placeholder="Digite seu nome e sobrenome"
+                                required
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="email">E-mail *</label>
+                            <input 
+                                type="email"
+                                id="email"
+                                name="email"
+                                class="form-input"
+                                placeholder="nome@dominio.com"
+                                required
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="whatsapp">WhatsApp *</label>
+                            <input 
+                                type="tel"
+                                id="whatsapp"
+                                name="whatsapp"
+                                class="form-input"
+                                placeholder="(00) 00000-0000"
+                                maxlength="15"
+                                required
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="city">Cidade/UF (opcional)</label>
+                            <input 
+                                type="text"
+                                id="city"
+                                name="cidade_uf"
+                                class="form-input"
+                                placeholder="Ex.: São Paulo/SP"
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Sou... *</label>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" id="profile-anfitriao" name="perfil" value="1" required checked>
+                                    <label for="profile-anfitriao">Anfitrião</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="profile-hospede" name="perfil" value="2" required >
+                                    <label for="profile-hospede">Hóspede</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="profile-nenhuma" name="perfil" value="0" required>
+                                    <label for="profile-nenhuma">Nenhuma das opções</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="message">Alguma dúvida ou comentário? (opcional)</label>
+                            <textarea 
+                                id="message"
+                                name="mensagem"
+                                class="form-input form-textarea"
+                                placeholder="Deixe seu comentário"
+                            ></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="consent" name="consentimento" required>
+                                <label for="consent" class="checkbox-label">
+                                    Autorizo o envio de comunicações sobre a Adega 101 e concordo com a 
+                                    <a href="/privacidade" target="_blank">Política de Privacidade</a>. *
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="6Lem9u4rAAAAAG99eouqWuPYMFBjfptXumOZBFw8"></div>
+                        </div>
+
+                        <!-- Honeypot field for spam prevention. The backend should reject submissions where this field is filled. -->
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                            <input type="text" name="_honeypot" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <button type="submit" class="btn btn-hero form-submit">
+                            Entrar na lista VIP
+                        </button>
+                        <div id="form-message" style="margin-top: 1rem; text-align: center;"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section faq">
+        <div class="container">
+            <div style="text-center; margin-bottom: 4rem;" class="fade-in">
+                <h2 class="section-title">Perguntas Frequentes</h2>
+                <p class="section-subtitle">Tire suas dúvidas sobre a Adega 101</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item fade-in">
+                    <button class="faq-trigger" onclick="toggleFaq(0)">
+                        A Adega 101 precisa de instalação elétrica ou bateria?
+                    </button>
+                    <div class="faq-content" id="faq-0">
+                        Não. Ela funciona de forma independente, sem uso de energia ou bateria.
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <button class="faq-trigger" onclick="toggleFaq(1)">
+                        É fácil de instalar?
+                    </button>
+                    <div class="faq-content" id="faq-1">
+                        Sim. A instalação é simples, leva em média 15 minutos e não exige furos na parede nem ligação elétrica. Basta posicionar no local desejado.
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <button class="faq-trigger" onclick="toggleFaq(2)">
+                        O sistema funciona sem internet?
+                    </button>
+                    <div class="faq-content" id="faq-2">
+                        Sim. Porém, para a liberação imediata do código é necessário acesso à internet no momento da compra. Caso não haja conexão, o sistema armazena a transação e sincroniza automaticamente assim que a internet voltar.
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <button class="faq-trigger" onclick="toggleFaq(3)">
+                        Como funciona a reposição de vinhos?
+                    </button>
+                    <div class="faq-content" id="faq-3">
+                        O próprio anfitrião faz a reposição, escolhendo os rótulos que deseja oferecer.
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <button class="faq-trigger" onclick="toggleFaq(4)">
+                        Posso escolher quais vinhos colocar?
+                    </button>
+                    <div class="faq-content" id="faq-4">
+                        Sim! Você tem total liberdade para selecionar os vinhos, definir preços e cadastrar detalhes no sistema (nome, características e sugestões de harmonização).
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <button class="faq-trigger" onclick="toggleFaq(5)">
+                        Quais são os custos com a Adega 101?
+                    </button>
+                    <div class="faq-content" id="faq-5">
+                        • Valor de aquisição da Adega (produto físico).
+• Mensalidade do sistema de funcionamento.
+• Taxa de 4,99% sobre cada vinho vendido.
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <button class="faq-trigger" onclick="toggleFaq(6)">
+                        Como recebo o valor das vendas?
+                    </button>
+                    <div class="faq-content" id="faq-6">
+                        No momento do cadastro, você informa a sua chave Pix. Os pagamentos caem instantaneamente na sua conta, já descontadas as taxas.
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <button class="faq-trigger" onclick="toggleFaq(7)">
+                        Como os vinhos ficam protegidos na Adega 101?
+                    </button>
+                    <div class="faq-content" id="faq-7">
+                        Cada garrafa é protegida com cadeado. O código só é exibido para o hóspede após a confirmação do pagamento.
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <button class="faq-trigger" onclick="toggleFaq(8)">
+                        O hóspede precisa fazer cadastro para comprar?
+                    </button>
+                    <div class="faq-content" id="faq-8">
+                        Não. O processo é rápido e intuitivo:
+
+1 - O hóspede escaneia o QR Code do vinho.
+2 - Realiza o pagamento direto no celular.
+3 - Recebe imediatamente o código para destravar a garrafa.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <img 
+                    src="logo_transparent.png" 
+                    alt="Adega 101 Logo"
+                    class="cta-logo"
+                />
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-company">
+                    <p class="footer-description">
+                        O sistema inteligente de autoatendimento de vinhos para hospedagens. 
+                        Aumente sua receita e encante seus hóspedes.
+                    </p>
+                    
+                    <div style="margin-bottom: 0.5rem;">
+                        <div class="footer-contact">
+                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <span>contato@adega101.com.br</span>
+                        </div>
+                        <div class="footer-contact">
+                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <span>(11) 99999-9999</span>
+                        </div>
+                        <div class="footer-contact">
+                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span>São Paulo, Brasil</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-section-title">Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="scrollToSection('hero')">Sobre nós</a></li>
+                        <li><a href="#" onclick="scrollToSection('how-it-works')">Como funciona</a></li>
+                        <li><a href="#" onclick="scrollToSection('benefits')">Preços</a></li>
+                        <li><a href="#" onclick="scrollToSection('vip-signup')">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-section-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="/privacidade">Política de Privacidade e Termos de Uso</a></li>
+                        <li><a href="#" onclick="scrollToSection('vip-signup')">Suporte</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 Adega 101. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        var submitted = false;
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'cta_click',
+                    'event_category': 'navigation',
+                    'event_label': sectionId
+                });
+                element.scrollIntoView({ behavior: 'smooth' });
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu) {
+                    mobileMenu.classList.remove('active');
+                }
+            }
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu) {
+                mobileMenu.classList.toggle('active');
+            }
+        }
+
+        // FAQ toggle
+        function toggleFaq(index) {
+            const content = document.getElementById('faq-' + index);
+            if (content) {
+                const isActive = content.classList.contains('active');
+                // Close all FAQ items
+                const allContents = document.querySelectorAll('.faq-content');
+                allContents.forEach(item => {
+                    if (item.id !== 'faq-' + index) {
+                         item.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    content.classList.add('active');
+                } else {
+                    content.classList.remove('active');
+                }
+            }
+        }
+
+        // Form submission
+        document.getElementById('vip-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const token = grecaptcha.getResponse();
+            if (!token) {
+                alert("Por favor, marque a caixa 'Não sou um robô'.");
+                return;
+            }
+
+            const form = e.target;
+            const formData = new FormData(form);
+            const data = { token }; // Adiciona o token do reCAPTCHA
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            // Also gather hidden fields added by the script
+            const hiddenInputs = form.querySelectorAll('input[type="hidden"]');
+            hiddenInputs.forEach(input => {
+                data[input.name] = input.value;
+            });
+
+            const submitButton = form.querySelector('button[type="submit"]');
+            const messageDiv = document.getElementById('form-message');
+            
+            submitButton.disabled = true;
+            messageDiv.textContent = 'Enviando...';
+            messageDiv.style.color = 'var(--muted-foreground)';
+
+            try {
+                const response = await fetch('/submit-form', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                if (response.ok) {
+                    // Push to dataLayer for analytics
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        'event': 'form_submission',
+                        'event_category': 'conversion',
+                        'event_label': 'vip-form-success'
+                    });
+
+                    messageDiv.textContent = 'Obrigado! Seus dados foram enviados com sucesso.';
+                    messageDiv.style.color = 'green';
+                    form.reset();
+                } else {
+                    throw new Error('Falha no envio.');
+                }
+            } catch (error) {
+                 window.dataLayer = window.dataLayer || [];
+                 window.dataLayer.push({
+                    'event': 'form_submission',
+                    'event_category': 'error',
+                    'event_label': 'vip-form-failure'
+                });
+                messageDiv.textContent = 'Ocorreu um erro ao enviar. Por favor, tente novamente.';
+                messageDiv.style.color = 'var(--destructive)';
+            } finally {
+                submitButton.disabled = false;
+            }
+        });
+        
+        // --- NOVO CÓDIGO PARA SCROLL REVEAL (FADE-IN ON SCROLL) ---
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lógica de Scroll Reveal
+            const observerOptions = {
+                root: null, // O viewport (área visível da tela)
+                rootMargin: '0px',
+                threshold: 0.1 // O elemento deve estar 10% visível para acionar a animação
+            };
+
+            function handleIntersect(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Quando o elemento está visível, adiciona a classe 'visible'
+                        entry.target.classList.add('visible');
+                        // Para de observar o elemento
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }
+
+            const observer = new IntersectionObserver(handleIntersect, observerOptions);
+
+            // Seleciona todos os elementos que devem ter o fade-in
+            document.querySelectorAll('.fade-in').forEach(element => {
+                observer.observe(element);
+            });
+            
+            
+            // Lógica existente para URL parameters e form tracking
+            const urlParams = new URLSearchParams(window.location.search);
+            const hiddenFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'];
+            
+            hiddenFields.forEach(field => {
+                const value = urlParams.get(field);
+                if (value) {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = field;
+                    input.value = value;
+                    document.getElementById('vip-form').appendChild(input);
+                }
+            });
+            
+            // Add page info
+            const pageInfoFields = [
+                { name: 'page_url', value: window.location.href },
+                { name: 'referrer', value: document.referrer },
+                { name: 'user_agent', value: navigator.userAgent },
+                { name: 'lead_source', value: 'site-estatico' },
+                { name: 'tag', value: 'pre-lancamento' }
+            ];
+            
+            pageInfoFields.forEach(field => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = field.name;
+                input.value = field.value;
+                document.getElementById('vip-form').appendChild(input);
+            });
+
+            // WhatsApp mask
+            const whatsappInput = document.getElementById('whatsapp');
+            whatsappInput.addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 11) {
+                    value = value.substring(0, 11);
+                }
+                
+                value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+                
+                if (value.length > 10) {
+                    value = value.replace(/(\d{5})(\d{4})$/, '$1-$2');
+                } else {
+                    value = value.replace(/(\d{4})(\d{4})$/, '$1-$2');
+                }
+                e.target.value = value;
+            });
+        });
+        // --- FIM DO NOVO CÓDIGO ---
+    </script>
+</body>
+</html>

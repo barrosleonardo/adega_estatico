@@ -1,0 +1,12 @@
+# IDE configuration files
+.idea/
+
+# macOS files
+.DS_Store
+
+# Environment variables file - NEVER commit secrets
+.env
+.env.local
+
+# Log files
+*.log
