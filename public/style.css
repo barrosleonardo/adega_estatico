@@ -4,21 +4,19 @@
 .footer-social {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 1.5rem;
     margin-top: 1.5rem;
 }
 
-.footer-social a {
+.footer-social a svg {
+    width: 24px;  /* Tamanho explícito */
+    height: 24px; /* Tamanho explícito */
     color: var(--muted-foreground);
-    transition: color 0.2s;
+    transition: color 0.2s ease-in-out;
 }
 
-.footer-social a:hover {
+.footer-social a:hover svg {
     color: var(--primary);
-}
-
-.footer-social svg {
-    width: 1.5rem;
-    height: 1.5rem;
 }
 
